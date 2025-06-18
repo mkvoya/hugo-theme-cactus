@@ -13,6 +13,8 @@
   <div class="blog-post-comments">
     {{ if (or (not (isset .Site.Params.Comments "engine")) (eq .Site.Params.Comments.Engine "disqus")) }}
       {{ partial "comments/disqus.html" . }}
+    {{ else if eq .Site.Params.Comments.Engine "giscus" }}
+      {{ partial "comments/giscus.html" . }}
     {{ else if eq .Site.Params.Comments.Engine "utterances" }}
       {{ partial "comments/utterances.html" . }}
     {{ else if eq .Site.Params.Comments.Engine "cactus_comments" }}
